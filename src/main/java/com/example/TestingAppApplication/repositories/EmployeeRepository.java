@@ -1,0 +1,12 @@
+package com.example.TestingAppApplication.repositories;
+
+import com.example.TestingAppApplication.entities.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface EmployeeRepository extends JpaRepository<Employee,Long> {
+
+    List<Employee> findByEmail(String email);
+}
+
