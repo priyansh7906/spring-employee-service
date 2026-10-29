@@ -5,9 +5,15 @@ phases:
   install:
     runtime-versions:
       java: corretto25
+    commands:
+      - java -version
+      - mvn -version
 
   build:
     commands:
+      - echo "Checking project files"
+      - ls -la
+      - test -f pom.xml
       - echo "Building Spring Boot application"
       - mvn package -DskipTests
 
