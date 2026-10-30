@@ -15,7 +15,7 @@ phases:
       - ls -la
       - test -f pom.xml
       - echo "Building Spring Boot application"
-      - mvn package -DskipTests
+      - mvn package
 
   post_build:
     commands:
