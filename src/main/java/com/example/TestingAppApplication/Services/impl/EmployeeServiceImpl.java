@@ -4,6 +4,7 @@ import com.example.TestingAppApplication.Services.EmployeeService;
 import com.example.TestingAppApplication.dto.EmployeeDto;
 import com.example.TestingAppApplication.entities.Employee;
 import com.example.TestingAppApplication.exceptions.EmployeeAlreadyExistsException;
+import com.example.TestingAppApplication.exceptions.EmployeeNotFoundException;
 import com.example.TestingAppApplication.exceptions.ResourceNotFoundException;
 import com.example.TestingAppApplication.repositories.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,8 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .orElseThrow(() -> {
                     log.error("Employee not found with id: {}", id);
 
-                    return new ResourceNotFoundException(
-                            "Employee not found with id: " + id);
+                    return new EmployeeNotFoundException(id);
                 });
         log.info("Successfully fetched employee with id: {}", id);
 
