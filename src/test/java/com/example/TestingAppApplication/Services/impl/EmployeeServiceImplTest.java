@@ -4,6 +4,7 @@ package com.example.TestingAppApplication.Services.impl;
 import com.example.TestingAppApplication.config.TestContainerConfiguration;
 import com.example.TestingAppApplication.dto.EmployeeDto;
 import com.example.TestingAppApplication.entities.Employee;
+import com.example.TestingAppApplication.exceptions.EmployeeNotFoundException;
 import com.example.TestingAppApplication.exceptions.ResourceNotFoundException;
 import com.example.TestingAppApplication.repositories.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -87,7 +88,7 @@ class EmployeeServiceImplTest {
 //        act and assert
 
         assertThatThrownBy(() -> employeeService.getEmployeeById(1L))
-                .isInstanceOf(ResourceNotFoundException.class)
+                .isInstanceOf(EmployeeNotFoundException.class)
                 .hasMessage("Employee not found with id: 1");
 
                 verify(employeeRepository).findById(1L);
