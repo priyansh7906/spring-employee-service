@@ -147,11 +147,11 @@ class EmployeeControllerTestIT extends AbstractIntegrationClass {
 
         // Arrange: Save employees in test database
         Employee employee1 = new Employee(
-                null, "priyansh@gmail.com", "Priyansh", 25000L
+                null, "priyansh@gmail.com", "Priyansh", 25000L,"7906876252"
         );
 
         Employee employee2 = new Employee(
-                null, "rahul@gmail.com", "Rahul", 30000L
+                null, "rahul@gmail.com", "Rahul", 30000L,"9756391263"
         );
 
         employeeRepository.save(employee1);
