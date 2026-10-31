@@ -22,4 +22,6 @@ public class Employee {
 
     private Long salary;
 
+    private String Phone;
+
 }

@@ -3,6 +3,7 @@ package com.example.TestingAppApplication.Services.impl;
 import com.example.TestingAppApplication.Services.EmployeeService;
 import com.example.TestingAppApplication.dto.EmployeeDto;
 import com.example.TestingAppApplication.entities.Employee;
+import com.example.TestingAppApplication.exceptions.EmployeeAlreadyExistsException;
 import com.example.TestingAppApplication.exceptions.ResourceNotFoundException;
 import com.example.TestingAppApplication.repositories.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -55,9 +56,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (!existingEmployees.isEmpty()) {
             log.error("Employee already exists with email: {}",
                     employeeDto.getEmail());
-            throw new RuntimeException(
-                    "Employee already exists with email: "
-                            + employeeDto.getEmail());
+            throw new EmployeeAlreadyExistsException(
+                    "Employee already exists with email: " + employeeDto.getEmail());
         }
 
         Employee newEmployee =

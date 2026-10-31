@@ -1,0 +1,2 @@
+ALTER TABLE employee
+ADD COLUMN phone VARCHAR(15);

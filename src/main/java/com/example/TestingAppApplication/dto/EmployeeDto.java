@@ -17,17 +17,18 @@ public class EmployeeDto {
     private String email;
     private String name;
     private Long salary;
+    private String phone;
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeDto that = (EmployeeDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(email, that.email) && Objects.equals(name, that.name) && Objects.equals(salary, that.salary);
+        return Objects.equals(id, that.id) && Objects.equals(email, that.email) && Objects.equals(name, that.name) && Objects.equals(salary, that.salary) && Objects.equals(phone, that.phone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, name, salary);
+        return Objects.hash(id, email, name, salary, phone);
     }
 
 
